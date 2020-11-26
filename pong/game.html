@@ -1,0 +1,25 @@
+<html>
+<canvas id="gameCanvas" width=800 height=600></canvas>
+<script>
+var canvas;
+var canvasContext;
+var ballX = 50;
+
+window.onload = function() {
+  canvas = document.getElementById('gameCanvas');
+  canvasContext = canvas.getContext('2d');
+  
+  setInterval(drawEverything, 1000);
+}
+
+function drawEverything() {
+  ballX += 20;
+  // fill background
+  canvasContext.fillStyle = 'black';
+  canvasContext.fillRect(0, 0, canvas.width, canvas.height);
+  // draw red square
+  canvasContext.fillStyle = 'red';
+  canvasContext.fillRect(ballX, 200, 25, 25);
+}
+</script>
+</html>
