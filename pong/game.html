@@ -40,6 +40,7 @@ window.onload = function() {
 }
 
 function ballReset() {
+  ballSpeedX = -ballSpeedX;
   ballX = canvas.width/2;
   ballY = canvas.height/2;
 }
@@ -48,16 +49,21 @@ function moveEverything() {
   ballX += ballSpeedX;
   ballY += ballSpeedY;
   if (ballX > canvas.width) {
-      ballSpeedX = -ballSpeedX;
+    ballSpeedX = -ballSpeedX;
   } 
   if (ballX < 0) {
-      ballSpeedX = -ballSpeedX;
+    if (ballY > paddle1Y &&
+      ballY < paddle1Y + PADDLE_HEIGHT) {
+        ballSpeedX = -ballSpeedX;
+      } else {
+        ballReset();
+      }
   }
   if (ballY > canvas.height) {
-      ballSpeedY = -ballSpeedY;
+    ballSpeedY = -ballSpeedY;
   } 
   if (ballY < 0) {
-      ballSpeedY = -ballSpeedY;
+    ballSpeedY = -ballSpeedY;
   }
 }
 function drawEverything() {
