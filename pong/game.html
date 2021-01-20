@@ -9,6 +9,7 @@ var ballSpeedX = 10;
 var ballSpeedY = 4;
 
 var paddle1Y = 250;
+var paddle2Y = 250;
 const PADDLE_HEIGHT = 100;
 
 function calculateMousePos(event) {
@@ -69,8 +70,10 @@ function moveEverything() {
 function drawEverything() {
   // fill background
   colorRect(0, 0, canvas.width, canvas.height, 'black');
-  // draw paddle
+  // draw left paddle
   colorRect(0, paddle1Y, 10, 100, 'white');
+  // draw right paddle
+  colorRect(canvas.width-10, paddle2Y, 10, 100, 'white');
   // draw ball
   colorCircle(ballX, ballY, 10, 'white');
 
